@@ -5,8 +5,13 @@ const app = express();
 
 const PORT = 3000;
 
+app.use(express.static("public"));
+
+app.use("/images", express.static("images"));
+
 app.get("/", (req, res) =>{
-    res.send("This is a GET request /");
+   // res.send("This is a GET request /");
+   res.json(data);
 });
 
 app.post("/create", (req,res) =>{
