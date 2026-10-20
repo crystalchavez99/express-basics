@@ -9,11 +9,21 @@ app.use(express.static("public"));
 
 app.use("/images", express.static("images"));
 
+// GET
 app.get("/", (req, res) =>{
    // res.send("This is a GET request /");
    res.json(data);
 });
 
+// GET WITH NEXT
+app.get("/next", (req, res, next) =>{
+    console.log(`response will be sent by the next function...`);
+    next();
+}, (req,res)=>{
+    res.send("I just set up a route with a second callback function")
+});
+
+ // GET WITH PARAMS
 app.get("/class/:id", (req, res) =>{
     const studentId = Number(req.params.id);
     const student = data.filter((student) => student.id === studentId);
