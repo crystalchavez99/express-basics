@@ -28,7 +28,14 @@ app.get("/class/:id", (req, res) =>{
     const studentId = Number(req.params.id);
     const student = data.filter((student) => student.id === studentId);
     res.send(student);
-})
+});
+
+app.get("/download", (req, res) =>{
+    res.download('images/mountains_2.jpeg');
+ });
+app.get("/redirect", (req, res) =>{
+    res.redirect('https://www.linkedin.com/');
+ });
 
 app.post("/create", (req,res) =>{
     res.send("This is a POST request /create");
