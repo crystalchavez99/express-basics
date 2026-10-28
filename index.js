@@ -49,6 +49,21 @@ app.delete("/delete", (req,res) =>{
     res.send("This is a DELETE request /delete");
 })
 
+// Route Chaining
+app.route("/class")
+    .get((req,res) =>{
+        res.send("This is a GET request /class");
+    })
+    .post((req,res) =>{
+        res.send("This is a POST request /class");
+    })
+    .put((req,res) =>{
+        res.send("This is a PUT request /class");
+    })
+    .delete((req,res) =>{
+        res.send("This is a DELETE request /class");
+    });
+
 app.listen(PORT, () =>{
     console.log(`Server is running on port ${PORT}`);
 })
